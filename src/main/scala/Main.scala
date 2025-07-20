@@ -8,8 +8,7 @@ object Main {
 
     var isTranslating = true
     while (isTranslating) {
-
-      val input = StdIn.readLine().trim.toLowerCase
+      
 
       input match {
         case "1" => {
