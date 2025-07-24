@@ -3,8 +3,6 @@ package translators
 
 object Translator {
 
-  private val MorseCharSeparator = " "
-  private val MorseWordSeparator = "/"
 
   def convertTextToMorse(text: String): String = {
 
@@ -19,38 +17,39 @@ object Translator {
     for(i <- charArr.indices) {
       val char = charArr(i)
       morseArr(i) = {
-        if (charArr(i).equals(MorseCharSeparator)) MorseWordSeparator
+        if (charArr(i).equals(" ")) "/"
         else MorseCode.charToMorse(char)
       }
     }
-    
-    morseArr.mkString(MorseCharSeparator)
+
+    morseArr.mkString(" ")
   }
 
+  def convertMorseToText(morse: String): String = {
+    // ".... .." -> "...." ".."
+    //first the method is passed the morse code as a String type
+    // then we break the string into words
+    //
 
+    // split up morse words / letters by spaces to get morse letters
+    val morseLettersArr = morse.split(" ")
 
+    // new arr to store decoded morse letters
+    val textArr = new Array[Char](morseLettersArr.length)
 
-//  def helperFunction(str: String): String = {
-//
-//  }
+    for(i <- morseLettersArr.indices) {
 
+      val morseLetter = morseLettersArr(i)
+      println(morseLetter)
 
+      textArr(i) = {
+        if (morseLettersArr(i).equals("/")) ' '
+        else MorseCode.morseToChar(morseLetter)
+      }
+    }
 
-  // Function to split a sentence into a list of word
-  def convertSentenceToWords(sentence: String): List[String] = {
+    textArr.mkString("").toLowerCase()
 
-    sentence.split(" ").filterNot(_.isEmpty).toList
   }
 
-  def morseSentenceToWords(str: String): List[String] = {
-    str.split(s" $MorseWordSeparator ").toList // Splits by " / "
-  }
-
-//  def decodeMorseWord(morseWord: String): Either[String, String] = {
-//
-//  }
-//
-//  def morseToText(morse: String): Either[String, String] = {
-//
-//  }
 }

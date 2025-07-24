@@ -22,8 +22,9 @@ object Main {
         }
         case "2" => {
           OutputHandler.printPromptMsg("Enter Morse code to translate to text (use spaces between letters, '/' for word breaks):")
-          val textToTranslate = InputHandler.getUpperCaseUserInput()
-          OutputHandler.printPromptMsg(s"Text: ")
+          val textToTranslate = InputHandler.getUserInput()
+          val decodedMorse = Translator.convertMorseToText(textToTranslate)
+          OutputHandler.printPromptMsg(s"Text: $decodedMorse")
         }
         case "exit" => {
           isTranslating = false
