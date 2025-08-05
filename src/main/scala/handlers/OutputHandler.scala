@@ -2,13 +2,14 @@ package handlers
 
 object OutputHandler {
 
-  def printWelcomeMsg() = {
+  def printWelcomeMsg(): Unit = {
     println("Welcome to the Morse code translator!")
-    println("Enter: \n '1' for Text to Morse \n '2' for Morse to Text \n 'exit' to quit")
   }
   
-  def printPromptMsg(prompt: String) = println(prompt)
+  def printMenu(): Unit = println("Enter: \n '1' for Text to Morse \n '2' for Morse to Text \n 'exit' to quit")
+  
+  def printPromptMsg(prompt: String): Unit = println(prompt)
 
-  def printResultMsg(label: String, result: String) = println(s"$label: $result")
+  def printResultMsg(label: String, result: String): Unit = println(s"$label: $result")
 
 }

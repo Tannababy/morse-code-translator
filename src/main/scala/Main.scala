@@ -13,7 +13,9 @@ object Main {
   }
 
   @tailrec
-  def selectTranslatorOptions(): Unit = {
+  private def selectTranslatorOptions(): Unit = {
+    
+    OutputHandler.printMenu()
 
     val userChoice = InputHandler.getUserInput()
 
