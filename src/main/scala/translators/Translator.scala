@@ -28,8 +28,10 @@ object Translator {
   def convertMorseToText(morse: String): String = {
     // ".... .." -> "...." ".."
     //first the method is passed the morse code as a String type
-    // then we break the string into words
-    //
+    // break the morse words/sentence into morse letters (.split(" ") bcz morse letters are separated by spaces)
+    // .split method returns an array
+    // loop through array of morse letters and change to text char and "/" to spaces
+    // return text char arr as a string
 
     // split up morse words / letters by spaces to get morse letters
     val morseLettersArr = morse.split(" ")
@@ -40,7 +42,6 @@ object Translator {
     for(i <- morseLettersArr.indices) {
 
       val morseLetter = morseLettersArr(i)
-      println(morseLetter)
 
       textArr(i) = {
         if (morseLettersArr(i).equals("/")) ' '
